@@ -1,7 +1,7 @@
 <h1>Activities</h1>
 <ul>
   {{#each model as |activity|}}
-    <li>{{activity.title}}</li>
+    <li>{{#link-to "activities.activity" activity }}{{activity.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
 

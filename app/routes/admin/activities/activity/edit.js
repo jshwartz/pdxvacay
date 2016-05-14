@@ -9,6 +9,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
+
     updateActivity: function() {
       var controller = this.get('controller'),
           model = controller.get('model'),
@@ -16,14 +17,23 @@ export default Ember.Route.extend({
           address = controller.store.peekRecord('address', addressId);
       model.save();
       address.save();
+      controller.set('isEditing', false);
       this.transitionTo('admin.activities');
     },
+
     willTransition: function(transition) {
       var controller = this.get('controller'),
-          leave = window.confirm("You have unsaved changes. Are you sure you want to leave?");
-      if (leave) {  
+          leave = null,
+          isEditing = controller.get('isEditing');
+      if (isEditing) {
+        leave = window.confirm("You have unsaved changes. Are you sure you want to leave?");
+        if (leave) {
+          controller.set('isEditing', true);
+        } else {
+          transition.abort();
+        }
       } else {
-        transition.abort();
+        controller.set('isEditing', true);
       }
     },
 

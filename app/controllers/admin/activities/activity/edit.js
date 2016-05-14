@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   zones: [{id: 1, zone: 'Portland'}, {id: 2, zone: 'Hood-River'}],
   durations: [{id: 1, duration: '1 Hour'}, {id: 2, duration: '2 Hours'}],
   prices: [{id: 1, price: 1}, {id: 2, price: 2}, {id: 3, price: 3}, {id: 4, price: 4}, {id: 5, price: 5}],
+  isEditing: true,
 
 
   actions: {

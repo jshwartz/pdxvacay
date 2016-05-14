@@ -11,6 +11,8 @@
   <li>description: {{model.description}}</li>
 </ul>
 
-{{#link-to 'admin.activities.activity.edit' model}}Edit Activity{{/link-to}}
+{{#link-to 'admin.activities.activity.edit' model}}Edit Activity{{/link-to}} | <span class='link-text' {{action 'deleteActivity' model}}>Delete Activity</span>
+
+
 
 {{outlet}}

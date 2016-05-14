@@ -1,0 +1,11 @@
+.link-text {
+  color: #337ab7;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.link-text:hover {
+    color: hotpink;
+    text-decoration: underline;
+}

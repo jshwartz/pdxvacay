@@ -8,6 +8,18 @@ export default Ember.Controller.extend({
   prices: [{id: 1, price: 1}, {id: 2, price: 2}, {id: 3, price: 3}, {id: 4, price: 4}, {id: 5, price: 5}],
   isEditing: true,
 
+  filepicker: Ember.inject.service(),
+  errors: [],
+  imageOptions: {
+    mimetypes: ['image/*'],
+    services: ['COMPUTER', 'IMAGE_SEARCH', 'WEBCAM', 'FACEBOOK', 'GMAIL', 'BOX', 'DROPBOX', 'FLICKR', 'PICASA', 'INSTAGRAM']
+  },
+  textOptions: {
+    mimetypes: ['text/plain'],
+    services: ['BOX', 'COMPUTER', 'DROPBOX', 'EVERNOTE', 'FTP', 'GITHUB', 'GOOGLE_DRIVE', 'SKYDRIVE', 'WEBDAV', 'GMAIL', 'URL']
+  },
+  showTable: true,
+
 
   actions: {
     updateCatagory(newOption){
@@ -24,6 +36,41 @@ export default Ember.Controller.extend({
     },
     updatePrice(newOption){
       this.set('model.price', newOption.price);
+    },
+    pickWithFilepicker: function() {
+      this.set('openPicker',true);
+    },
+    fileSelected: function(InkBlob){
+      var _this = this;
+      var newImg;
+      var model = this.get('model');
+
+      newImg = this.store.createRecord('userimage', {ready: false, activity: model});
+      newImg.imageReceived(InkBlob);
+      this.send('saveImage', newImg);
+      this.send('onClose');
+
+      this.get('filepicker.promise').then(function(filepicker) {
+        filepicker.stat(InkBlob,
+          {width: true, height: true},
+          function (metadata) {
+            newImg.set('width', metadata.width);
+            newImg.set('height', metadata.height);
+            newImg.set('ready', true);
+            newImg.save();
+
+          },
+          function (FPError) {
+            // unless dialog closed by user
+            if (FPError.code !== 101) {
+              _this.get('errors').pushObject(FPError.toString());
+            }
+          }
+        );
+      });
+    },
+    onClose: function () {
+      this.set('openPicker',false);
     },
 
   },

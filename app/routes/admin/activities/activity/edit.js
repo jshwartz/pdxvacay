@@ -21,6 +21,13 @@ export default Ember.Route.extend({
       this.transitionTo('admin.activities');
     },
 
+    saveImage: function(newImg) {
+      newImg.save();
+      var controller = this.get('controller'),
+          model = controller.get('model');
+      model.save();
+    },
+
     willTransition: function(transition) {
       var controller = this.get('controller'),
           leave = null,

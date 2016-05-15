@@ -7,6 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     firebase: 'https://portlandvacay.firebaseio.com/',
+    filepickerKey: 'AF4bKWUVdRImQUEbaWs72z',
     contentSecurityPolicy: {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
     },

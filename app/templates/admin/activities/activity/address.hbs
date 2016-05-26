@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.meta'}}Meta{{/link-to}}</li>
+  <li role="presentation" class='active'>{{#link-to 'admin.activities.activity.address'}}Address{{/link-to}}</li>
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.description'}}Description{{/link-to}}</li>
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.images'}}Images{{/link-to}}</li>
+</ul>
+{{#if editAddressToggle}}
+  <form>
+    <br>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Street:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.address.address1 class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">City:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.address.city class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">State:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.address.state class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Zip:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.address.zip class="form-control"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <button class="btn btn-success" {{action 'updateActivity'}}>Save Changes</button> <button class="btn btn-default" {{action 'editAddressCancel'}}>Cancel</button>
+      </div>
+    </div>
+  </form>
+{{else}}
+  <br>
+  <p><strong>Street:</strong> {{model.address.address1}}</p>
+  <p><strong>City:</strong> {{model.address.city}}</p>
+  <p><strong>State:</strong> {{model.address.state}}</p>
+  <p><strong>Zip:</strong> {{model.address.zip}}</p>
+  <br>
+  <p><button class="btn btn-default" {{action 'editAddress'}}>Edit Address</button></p>
+{{/if}}

@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.meta'}}Meta{{/link-to}}</li>
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.address'}}Address{{/link-to}}</li>
+  <li role="presentation" class='active'>{{#link-to 'admin.activities.activity.description'}}Description{{/link-to}}</li>
+  <li role="presentation" class=''>{{#link-to 'admin.activities.activity.images'}}Images{{/link-to}}</li>
+</ul>
+
+<br>
+{{#if editDescriptionToggle}}
+  <p><strong>Description:</strong></p>
+  {{textarea value=model.description class="form-control" rows="5"}}
+  <br>
+  <button class="btn btn-success" {{action 'updateActivity'}}>Save Changes</button> <button class="btn btn-default" {{action 'editDescriptionCancel'}}>Cancel</button>
+
+{{else}}
+  <p><strong>Description:</strong></p>
+  <p>{{model.description}}</p>
+  <br>
+  <p><button class="btn btn-default" {{action 'editDescription'}}>Edit Description</button></p>
+
+{{/if}}

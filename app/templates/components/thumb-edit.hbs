@@ -1,0 +1,18 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="{{picked.thumbImageUrl}}" alt="No Image">
+    <div class="caption">
+      {{#if isEditing}}
+        <p>{{input class='form-control' value=picked.caption placeholder=picked.caption}}</p>
+        <p><button class="btn btn-primary" role="button" {{action "saveUpdates"}}>Save</button> <button class="btn btn-default" role="button" {{action "cancelUpdates"}}>Cancel</button> </p>
+      {{else}}
+        {{#if picked.caption}}
+          <p>{{picked.caption}}</p>
+        {{else}}
+          <p><i>No caption</i></p>
+        {{/if}}
+        <p><button class="btn btn-primary" role="button" {{action "toggleEditOn"}}>Edit</button> <button class="btn btn-default" role="button" {{action "delete"}}>Delete</button></p>
+      {{/if}}
+    </div>
+  </div>
+</div>

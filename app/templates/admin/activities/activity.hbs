@@ -1,18 +1,8 @@
-
-<ul>
-  <li>title: {{model.title}}</li>
-  <li>sub-title: {{model.tileDetails}}</li>
-  <li>catagory: {{model.catagory}}</li>
-  <li>rating: {{model.rating}}</li>
-  <li>zone: {{model.zone}}</li>
-  <li>duration: {{model.duration}}</li>
-  <li>price: {{model.price}}</li>
-  <li>Address: {{model.address.address1}}, {{model.address.city}}, {{model.address.state}} {{model.address.zip}}</li>
-  <li>description: {{model.description}}</li>
-</ul>
-
-{{#link-to 'admin.activities.activity.edit' model}}Edit Activity{{/link-to}} | <span class='link-text' {{action 'deleteActivity' model}}>Delete Activity</span>
-
-
-
-{{outlet}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{#link-to 'admin.activities.list'}}Activity List{{/link-to}} / {{model.title}}</h3>
+  </div>
+  <div class="panel-body">
+    {{outlet}}
+  </div>
+</div>

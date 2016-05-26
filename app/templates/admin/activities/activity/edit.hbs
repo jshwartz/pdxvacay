@@ -1,5 +1,7 @@
 <h1>edit <b>{{model.title}}</b></h1>
 
+{{outlet}}
+
 <form {{action "updateActivity" on='submit'}}>
   <div class="row">
 
@@ -120,46 +122,17 @@
       {{#if openPicker}}
         {{ember-filepicker options=imageOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
       {{/if}}
-      {{#if showTable}}
-        <h2>Picked Images</h2>
-        <table class="table table-bordered">
-          <thead>
-            <th class="image">thumb</th>
-            <th class="url">url (click to view above)</th>
-            <th class="name">name</th>
-            <th class="size">size</th>
-            <th class="width">width</th>
-            <th class="height">height</th>
-          </thead>
-          {{#each model.userimages as |picked|}}
-            {{#if picked.ready}}
-              <tr>
-                <td class="image">
-                    <img src="{{picked.thumbImageUrl}}">
-                </td>
-                <td class="url">
-                  <span>{{picked.imageUrl}}</span>
-                </td>
-                <td class="name">
-                  <span>{{picked.filename}}</span>
-                </td>
-                <td class="size">
-                  <span>{{picked.size}} KB</span>
-                </td>
-                <td class="width">
-                  <span>{{picked.width}}px</span>
-                </td>
-                <td class="height">
-                  <span>{{picked.height}}px</span>
-                </td>
-              </tr>
-            {{/if}}
-          {{/each}}
-        </table>
-      {{else}}
-        <p class="no_images">No images picked yet</p>
-      {{/if}}
+    </div>
 
+
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-8">
+      {{#each model.userimages as |picked|}}
+        {{#if picked.ready}}
+          {{thumb-edit picked=picked update="updateImage" delete="deleteImage"}}
+        {{/if}}
+      {{/each}}
     </div>
   </div>
 </form>

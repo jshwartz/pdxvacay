@@ -9,3 +9,8 @@
     color: hotpink;
     text-decoration: underline;
 }
+
+li.rightside {
+    float:right;
+    line-height:34px;
+  }

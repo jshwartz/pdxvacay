@@ -1,0 +1,28 @@
+{{#link-to 'admin.activities.new'}}New Activity{{/link-to}}
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Catagory</th>
+      <th>Rating</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |activity|}}
+
+      <tr>
+        <td>{{#link-to 'admin.activities.activity.meta' activity}}{{activity.title}}{{/link-to}}</td>
+        <td>{{activity.catagory}}</td>
+        <td>{{activity.rating}}</td>
+        <td><button class="btn btn-default btn-xs" {{action 'deleteActivity' activity}}>Delete</button></td>
+      </tr>
+
+    {{/each}}
+  </tbody>
+
+</table>
+
+{{outlet}}

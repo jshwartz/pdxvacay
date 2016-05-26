@@ -28,6 +28,8 @@ export default Ember.Route.extend({
       model.save();
     },
 
+
+
     willTransition: function(transition) {
       var controller = this.get('controller'),
           leave = null,

@@ -11,6 +11,7 @@ export default Model.extend({
   ready: attr(),
   width: attr('number'),
   height: attr('number'),
+  caption: attr('string'),
   activity: belongsTo('activity'),
 
 
@@ -24,8 +25,8 @@ export default Model.extend({
   thumbImageUrl: (function () {
   // tack on conversion properties for small image
     var params = {};
-    params = this.addWidth(params, 50);
-    params = this.addHeight(params, 50);
+    params = this.addWidth(params, 242);
+    params = this.addHeight(params, 200);
     return this.buildUrl(this.get('imageUrl'), params);
   }).property('imageUrl'),
 

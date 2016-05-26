@@ -6,16 +6,21 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    deleteActivity: function(activity) {
-      var addressId = activity.get('address').get('id'),
-          address = this.store.peekRecord('address', addressId),
-          confirmDelete = window.confirm("Yo, you sure about this??");
-      if (confirmDelete) {
-        address.destroyRecord();
-        activity.destroyRecord();
-        this.transitionTo('admin.activities');
-      }
-    }
+
+    updateActivity: function() {
+      var controller = this.get('controller'),
+          model = controller.get('model'),
+          addressId = model.get('address').get('id'),
+          address = controller.store.peekRecord('address', addressId);
+      model.save();
+      address.save();
+    },
+    saveImage: function(newImg) {
+      newImg.save();
+      var controller = this.get('controller'),
+          model = controller.get('model');
+      model.save();
+    },
 
   }
 });

@@ -1,15 +1,8 @@
-<h1>Manage Activities</h1>
+<div class="page-header">
+  <h1>Admin<small> Manage Activities</small></h1>
+</div>
 <div class="row">
-  <div class="col-md-2">
-    <ul>
-      {{#each model as |activity|}}
-        <li>{{#link-to 'admin.activities.activity' activity}}{{activity.title}}{{/link-to}}</li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="col-md-6 well">
+  <div class="col-md-8">
     {{outlet}}
   </div>
 </div>
-
-{{#link-to 'admin.activities.new'}}New Activity{{/link-to}}

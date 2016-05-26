@@ -1,0 +1,106 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class='active' {{action 'toggleTab' 'meta'}}>{{#link-to 'admin.activities.activity.meta'}}Meta{{/link-to}}</li>
+  <li role="presentation" class='' {{action 'toggleTab' 'address'}}>{{#link-to 'admin.activities.activity.address'}}Address{{/link-to}}</li>
+  <li role="presentation" class='' {{action 'toggleTab' 'description'}}>{{#link-to 'admin.activities.activity.description'}}Description{{/link-to}}</li>
+  <li role="presentation" class='' {{action 'toggleTab' 'images'}}>{{#link-to 'admin.activities.activity.images'}}Images{{/link-to}}</li>
+</ul>
+<br>
+{{#if editMetaToggle}}
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Title:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.title class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Sub-Title:</label>
+      <div class="col-sm-8">
+        {{input type="text" value=model.tileDetails class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Catagory:</label>
+      <div class="col-sm-4">
+        {{ted-select
+          selectClassNames="form-control"
+          content=catagories
+          optionValueKey="id"
+          optionLabelKey="title"
+          onchange=(action "updateCatagory")
+          prompt="Choose a new catagory"
+        }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Rating:</label>
+      <div class="col-sm-4">
+        {{ted-select
+          selectClassNames="form-control"
+          content=ratings
+          optionValueKey="id"
+          optionLabelKey="rating"
+          onchange=(action "updateRating")
+          prompt="Choose a new rating"
+          selected=model.rating
+        }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Zone:</label>
+      <div class="col-sm-4">
+        {{ted-select
+          selectClassNames="form-control"
+          content=zones
+          optionValueKey="id"
+          optionLabelKey="zone"
+          onchange=(action "updateZone")
+          prompt="Choose a new zone"
+        }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Duration:</label>
+      <div class="col-sm-4">
+        {{ted-select
+          selectClassNames="form-control"
+          content=durations
+          optionValueKey="id"
+          optionLabelKey="duration"
+          onchange=(action "updateDuration")
+          prompt="Choose a new duration"
+        }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 control-label">Price:</label>
+      <div class="col-sm-4">
+        {{ted-select
+          selectClassNames="form-control"
+          content=prices
+          optionValueKey="id"
+          optionLabelKey="price"
+          onchange=(action "updatePrice")
+          prompt="Choose a new Price"
+        }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <button class="btn btn-success" {{action 'updateActivity'}}>Save Changes</button> <button class="btn btn-default" {{action 'editMetaCancel'}}>Cancel</button>
+      </div>
+    </div>
+  </form>
+
+{{else}}
+  <p><strong>Title:</strong> {{model.title}}</p>
+  <p><strong>Sub-Title:</strong> {{model.tileDetails}}</p>
+  <p><strong>Catagory:</strong> {{model.catagory}}</p>
+  <p><strong>Rating:</strong> {{model.rating}}</p>
+  <p><strong>Zone:</strong> {{model.zone}}</p>
+  <p><strong>Duration:</strong> {{model.duration}}</p>
+  <p><strong>Price:</strong> {{model.price}}</p>
+  <br>
+  <p><button class="btn btn-default" {{action 'editMeta'}}>Edit Meta Data</button></p>
+{{/if}}

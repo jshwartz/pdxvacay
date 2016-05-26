@@ -8,6 +8,6 @@ export default Model.extend({
   city: attr('string'),
   state: attr('string'),
   zip: attr('number'),
-  activity: belongsTo('activity', {async: true})
+  activity: belongsTo('activity')
 
 });

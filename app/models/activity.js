@@ -12,7 +12,7 @@ export default Model.extend({
   duration: attr('string'),
   price: attr('number'),
   description: attr('string'),
-  address: belongsTo('address', {async: true}),
+  address: belongsTo('address'),
   userimages: hasMany('userimage'),
 
 });

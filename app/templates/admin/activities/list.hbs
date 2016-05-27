@@ -1,28 +1,63 @@
-{{#link-to 'admin.activities.new'}}New Activity{{/link-to}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-4 activity-header">
+          <div class="input-group">
+            {{input type="text" placeholder="Search for..." value=searchTerm class="form-control"}}
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                  <span class="glyphicon glyphicon-search" aria-label="search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </div>
+        </div>
+        <div class="col-md-6 activity-header">
+          {{#if newActivityActive}}
+            <div class="input-group">
+              {{input type='text' class="form-control" placeholder='Enter title...' value=title}}
+              <div class="input-group-btn">
+                <button class="btn btn-success" type="button" {{action 'createActivity'}}>Create</button>
+                <button class="btn btn-success" type="button" {{action 'SetNewActivityActive'}}>x</button>
+              </div>
+            </div>
+          {{else}}
+            <button class="btn btn-success" type="button" {{action 'SetNewActivityActive'}}>New Activity</button>
+          {{/if}}
+        </div>
+    </div>
+  </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th {{action "setSortingTitle"}}>
+            <span class="sorting-link">Title</span>
+          </th>
+          <th {{action "setSortingCatagory"}}><span class="sorting-link">Catagory</span></th>
+          <th {{action "setSortingZone"}}><span class="sorting-link">Zone</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sortedActivities as |activity|}}
+
+          <tr>
+            <td>{{#link-to 'admin.activities.activity.meta' activity}}{{activity.title}}{{/link-to}}</td>
+            <td>{{activity.catagory}}</td>
+            <td>{{activity.zone}}</td>
+            <td><button class="btn btn-default btn-xs" {{action 'deleteActivity' activity}}>Delete</button></td>
+          </tr>
+
+        {{/each}}
+      </tbody>
+
+    </table>
+
+</div>
 
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Catagory</th>
-      <th>Rating</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |activity|}}
 
-      <tr>
-        <td>{{#link-to 'admin.activities.activity.meta' activity}}{{activity.title}}{{/link-to}}</td>
-        <td>{{activity.catagory}}</td>
-        <td>{{activity.rating}}</td>
-        <td><button class="btn btn-default btn-xs" {{action 'deleteActivity' activity}}>Delete</button></td>
-      </tr>
 
-    {{/each}}
-  </tbody>
 
-</table>
 
 {{outlet}}

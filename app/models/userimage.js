@@ -13,6 +13,8 @@ export default Model.extend({
   height: attr('number'),
   caption: attr('string'),
   activity: belongsTo('activity'),
+  cover: attr('boolean', { defaultValue: false }),
+
 
 
   imageReceived: function (InkBlob) {
@@ -45,5 +47,15 @@ export default Model.extend({
    params.h = height;
    return params;
   },
+
+  filestackKey: Ember.computed('imageUrl', function() {
+    var imageUrl = this.get('imageUrl');
+    return imageUrl.split("/").pop();
+  }),
+
+  tileUrl: Ember.computed('filestackKey', function() {
+    var filestackKey = this.get('filestackKey');
+    return "https://process.filestackapi.com/AF4bKWUVdRImQUEbaWs72z/resize=width:350,height:200,fit:crop/" + filestackKey;
+  }),
 
 });

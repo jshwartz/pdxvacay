@@ -1,8 +1,10 @@
 <h1>Activities</h1>
-<ul>
+
+
+<div class="row">
   {{#each model as |activity|}}
-    <li>{{#link-to "activities.activity" activity }}{{activity.title}}{{/link-to}}</li>
+    {{activity-tile url=activity.coverUrl title=activity.title tileDetails=activity.tileDetails}}
   {{/each}}
-</ul>
+</div>
 
 {{outlet}}

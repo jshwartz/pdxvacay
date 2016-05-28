@@ -12,6 +12,12 @@
           <p><i>No caption</i></p>
         {{/if}}
         <p><button class="btn btn-primary" role="button" {{action "toggleEditOn"}}>Edit</button> <button class="btn btn-default" role="button" {{action "delete"}}>Delete</button></p>
+        <div class="checkbox" {{action 'updateCover'}}>
+          <label>
+            {{input type="checkbox" name="cover" checked=picked.cover}}
+            Cover Photo?
+          </label>
+        </div>
       {{/if}}
     </div>
   </div>

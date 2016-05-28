@@ -14,5 +14,6 @@ export default Model.extend({
   description: attr('string'),
   address: belongsTo('address'),
   userimages: hasMany('userimage'),
+  coverUrl: attr('string'),
 
 });

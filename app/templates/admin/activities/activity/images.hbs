@@ -15,7 +15,7 @@
     <br>
     {{#each model.userimages as |image|}}
       {{#if image.ready}}
-        {{thumb-edit picked=image update="updateImage" delete="deleteImage"}}
+        {{thumb-edit picked=image update="updateImage" updateCover="updateCover" delete="deleteImage"}}
       {{/if}}
     {{/each}}
 

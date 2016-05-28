@@ -18,6 +18,11 @@ export default Ember.Component.extend({
     delete(){
       var image = this.get('picked');
       this.sendAction('delete', image);
+    },
+    updateCover() {
+      var picked = this.get('picked'),
+          tileUrl = this.get('picked.tileUrl');
+      this.sendAction('updateCover', picked, tileUrl);
     }
   }
 });

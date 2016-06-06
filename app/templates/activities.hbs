@@ -1,10 +1,13 @@
-<h1>Activities</h1>
+
 
 
 <div class="row">
-  {{#each model as |activity|}}
-    {{activity-tile url=activity.coverUrl title=activity.title tileDetails=activity.tileDetails}}
-  {{/each}}
+  <div class="col-md-11 col-md-offset-1">
+    <h1><b>Things to Do!</b></h1>
+    {{#each model as |activity|}}
+      {{activity-tile-2 url=activity.coverUrl title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory}}
+    {{/each}}
+  </div>
 </div>
 
 {{outlet}}

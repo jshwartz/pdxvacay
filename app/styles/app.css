@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Boogaloo);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+
+body {
+  background-image: url(http://api.thumbr.it/whitenoise-361x370.png?background=fafafaff&noise=77d4a7&density=15&opacity=30);
+}
+
 .link-text {
   color: #337ab7;
   text-decoration: none;
@@ -31,109 +38,124 @@ li.rightside {
   padding-top: 6px;
 }
 
-.hovereffect {
-  width: 100%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
-  border-radius: 15px;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.6);
-  -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.6);
-  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.6);
-}
-
-.hovereffect:hover {
-  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
-  -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-
-.hovereffect .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  background-color: rgba(75,75,75,0.2);
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  border-radius: 15px;
-}
-
-.hovereffect:hover .overlay {
-  background-color: rgba(59, 181, 79, 0.4);
-}
-
-
-.hovereffect img {
-  display: block;
-  position: relative;
-  border-radius: 15px;
-}
-
-.hovereffect h2 {
-  color: #fff;
-  text-align: center;
-  position: relative;
-  font-size: 17px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  -webkit-transform: translateY(45px);
-  -ms-transform: translateY(45px);
-  transform: translateY(45px);
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-.hovereffect .green {
-  background: rgba(59, 181, 79, 0.6);
-}
-
-.hovereffect:hover h2 {
-  -webkit-transform: translateY(5px);
-  -ms-transform: translateY(5px);
-  transform: translateY(5px);
-}
-
-.hovereffect a.info {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: transparent;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  font-weight: normal;
-  margin: -52px 0 0 0;
-  padding: 62px 65px;
-}
-
-.hovereffect:hover a.info {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
 
 .img-responsive {
   display:block;
   width:100%;
-  height:auto
+  height:100%;
+  border-radius: 5px;
 }
 
+
+
 .col-lg-3,.col-md-4,.col-sm-6,.col-xs-12 {
-  padding:3px;
+  margin: 4px;
+}
+
+.box {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  height: 125px;
+  margin: 8px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+}
+
+@media only screen and (max-width: 500px) {
+    .box {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        margin-bottom: 12px;
+    }
+}
+
+
+
+.box:hover {
+  transform: scale(1.05, 1.05);
+}
+
+
+
+.box-title {
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius: 5px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+
+}
+
+.box:hover .box-title {
+  height: 100%;
+}
+
+.box:hover .box-title h2 {
+  top: 20%;
+}
+
+.box:hover .box-title p {
+  opacity: 0.8;
+
+}
+
+.box .green {
+  background-color: rgba(59, 181, 79, 0.8);
+}
+
+.box .purple {
+  background-color: rgba(122, 47, 208, 0.83);
+}
+
+.box .brown {
+  background-color: rgba(224, 86, 36, 0.8);
+}
+
+.box-title h2 {
+  font-size: 18px;
+  margin: 0px;
+  margin-right: -50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Boogaloo', cursive;
+}
+
+.box-title p {
+  font-size: 14px;
+  margin: 0px;
+  padding: 4px;
+  display: block;
+  margin-right: -50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+@media only screen and (max-width: 500px) {
+  .box-title h2 {
+      font-size: 30px;
+  }
+}
+
+h1 {
+  font-family: 'Noto Sans', sans-serif;
 }

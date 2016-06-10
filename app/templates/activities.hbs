@@ -1,13 +1,65 @@
 
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class='center'>
+        <div class="">
+          <h1 {{action "setFilterCatagory" ''}}><b>PDX Vacay!</b></h1>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+          <div class="btn-group btn-group-sm shadow" role="group" aria-label="...">
+            <button type="button" class="btn btn-blue" {{action "setFilterCatagory" 'Food'}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeFood}}" aria-hidden="true"></span> Food</button>
+            <button type="button" class="btn btn-orange" {{action "setFilterCatagory" 'Drinks'}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeDrinks}}" aria-hidden="true"></span> Drinks</button>
+            <button type="button" class="btn btn-yellow" {{action "setFilterCatagory" 'Kids'}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeKids}}" aria-hidden="true"></span> Kids</button>
+            <button type="button" class="btn btn-red" {{action "setFilterCatagory" 'Inside'}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeInside}}" aria-hidden="true"></span> Indside</button>
+            <button type="button" class="btn btn-green" {{action "setFilterCatagory" 'Outside'}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeOutside}}" aria-hidden="true"></span> Outside</button>
+            <button type="button" class="btn btn-grey" {{action "setFilterCatagory" ''}}><span class="glyphicon glyphicon-triangle-right menu-selection {{activeAll}}" aria-hidden="true"></span> All</button>
 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
 
-<div class="row">
-  <div class="col-md-11 col-md-offset-1">
-    <h1><b>Things to Do!</b></h1>
-    {{#each model as |activity|}}
-      {{activity-tile-2 url=activity.coverUrl title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory}}
-    {{/each}}
+          <br>
+          {{#bs-dropdown class="shadow"}}
+            {{#bs-button class="btn-sm"}}<span {{action "sortToggle"}}>Sort By: {{buttonSort}}</span>{{/bs-button}}
+            {{#bs-dropdown-button class="btn-sm"}}<span class="caret"></span>{{/bs-dropdown-button}}
+            {{#bs-dropdown-menu}}
+              <li {{action "setSortingTitle"}}>Title</li>
+              <li {{action "setSortingCatagory"}}>Catagory</li>
+              <li {{action "setSortingPrice"}}>Price</li>
+              <li {{action "setSortingRating"}}>Rating</li>
+            {{/bs-dropdown-menu}}
+          {{/bs-dropdown}} &nbsp;
+          {{#bs-dropdown class="shadow"}}
+            {{#bs-dropdown-button class="btn-sm"}}{{buttonLocation}}  <span class="caret"></span>{{/bs-dropdown-button}}
+            {{#bs-dropdown-menu}}
+              <li {{action "setFilterLocation" ""}}>All Locations</li>
+              <li {{action "setFilterLocation" "Portland"}}>Portland</li>
+              <li {{action "setFilterLocation" "Hood-River"}}>Hood-River</li>
+            {{/bs-dropdown-menu}}
+          {{/bs-dropdown}} &nbsp;
+        </div>
+      </div>
+
+      </div>
+    </div>
   </div>
-</div>
+
+
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="center-stuff">
+        <br>
+        {{#each sortedActivities as |activity|}}
+          {{activity-tile-2 url=activity.coverUrl title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
 
 {{outlet}}

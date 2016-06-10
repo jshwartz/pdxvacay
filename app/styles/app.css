@@ -111,15 +111,23 @@ li.rightside {
 }
 
 .box .green {
-  background-color: rgba(59, 181, 79, 0.8);
+  background-color: rgba(155, 198, 63, 0.9);
 }
 
-.box .purple {
-  background-color: rgba(122, 47, 208, 0.83);
+.box .red {
+  background-color: rgba(229, 90, 52, 0.9);
 }
 
-.box .brown {
-  background-color: rgba(224, 86, 36, 0.8);
+.box .orange {
+  background-color: rgba(242, 117, 33, 0.9);
+}
+
+.box .yellow {
+  background-color: rgba(252, 226, 74, 0.9);
+}
+
+.box .blue {
+  background-color: rgba(92, 192, 235, 0.9);
 }
 
 .box-title h2 {
@@ -157,5 +165,157 @@ li.rightside {
 }
 
 h1 {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Boogaloo', cursive;
+  font-size: 4em;
+
+}
+
+.menu-selection {
+  font-size: 10px;
+  opacity: 0;
+}
+
+.menu-selection-selected {
+  opacity: 1;
+}
+
+.btn-green {
+    color: #fff;
+    background-color: #9BC53D;
+    font-weight: bold;
+}
+
+.btn-green:hover {
+    color: #fff;
+}
+
+.btn-green:hover .menu-selection {
+    opacity: 1;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #E55934;
+    font-weight: bold;
+}
+
+.btn-red:hover {
+    color: #fff;
+}
+
+.btn-red:hover .menu-selection {
+    opacity: 1;
+}
+
+.btn-yellow {
+    color: #fff;
+    background-color: #fbd80e;
+    font-weight: bold;
+}
+
+.btn-yellow:hover {
+    color: #fff;
+}
+
+.btn-yellow:hover .menu-selection {
+    opacity: 1;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #5BC0EB;
+    font-weight: bold;
+}
+
+.btn-blue:hover {
+    color: #fff;
+}
+
+.btn-blue:hover .menu-selection {
+    opacity: 1;
+}
+
+
+.btn-orange {
+    color: #fff;
+    background-color: #F2731F;
+    font-weight: bold;
+}
+
+.btn-orange:hover {
+    color: #fff;
+}
+
+.btn-orange:hover .menu-selection {
+    opacity: 1;
+}
+
+.btn-grey {
+    color: #fff;
+    background-color: #b3b3b3;
+    font-weight: bold;
+}
+
+.btn-grey:hover {
+    color: #fff;
+}
+
+.btn-grey:hover .menu-selection {
+    opacity: 1;
+}
+
+button.btn.btn-blue,
+button.btn.btn-yellow,
+button.btn.btn-orange,
+button.btn.btn-green,
+button.btn.btn-red,
+button.btn.btn-grey {
+    padding-right: 24px;
+}
+
+.btn-group > .btn:hover,
+.btn-group-vertical > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group-vertical > .btn:focus,
+.btn-group > .btn:active, .btn-group-vertical > .btn:active,
+.btn-group > .btn.active, .btn-group-vertical > .btn.active {
+  z-index: 0;
+}
+
+.btn-grey:focus,
+.btn-blue:focus,
+.btn-yellow:focus,
+.btn-green:focus,
+.btn-red:focus,
+.btn-orange:focus
+ {
+    color: #fff;
+}
+
+.center {
+  text-align: center;
+}
+
+.center-stuff {
+  margin: auto;
+  width: 648px;
+}
+
+
+
+@media only screen and (max-width: 750px) {
+  .center-stuff {
+      width: 432px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .center-stuff {
+      width: auto;
+  }
+}
+
+.shadow {
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  border-radius: 6px;
 }

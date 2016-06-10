@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -10,21 +10,41 @@
           </button>
 
           {{#link-to 'index' class='navbar-brand'}}
-              PDX Vacay!
+              <span class="funtext-strong">PDX Vacay!</span>
           {{/link-to}}
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            {{#link-to 'activities' tagName='li'}}
-              {{link-to 'Activities' 'activities'}}
-            {{/link-to}}
-            {{#link-to 'admin.activities.list' tagName='li'}}
-              {{link-to 'Admin' 'admin.activities.list'}}
-            {{/link-to}}
-          </ul>
-      </div><!-- /.navbar-collapse -->
+      {{#if expandNav}}
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+              {{#link-to 'activities' tagName='li'}}
+                {{link-to 'Guidebook' 'activities'}}
+              {{/link-to}}
+              {{#link-to 'admin.activities.list' tagName='li'}}
+                {{link-to 'Admin' 'admin.activities.list'}}
+              {{/link-to}}
+            </ul>
+        </div><!-- /.navbar-collapse -->
+      {{else}}
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              {{#link-to 'activities' tagName='li'}}
+                {{link-to 'Guidebook' 'activities'}}
+              {{/link-to}}
+              {{#link-to 'admin.activities.list' tagName='li'}}
+                {{link-to 'Admin' 'admin.activities.list'}}
+              {{/link-to}}
+              {{#link-to 'index' tagName='li'}}
+                {{link-to 'Itineraries' 'index'}}
+              {{/link-to}}
+              {{#link-to 'index' tagName='li'}}
+                {{link-to 'Wedding' 'index'}}
+              {{/link-to}}
+            </ul>
+        </div><!-- /.navbar-collapse -->
+      {{/if}}
   </div><!-- /.container-fluid -->
 </nav>
 

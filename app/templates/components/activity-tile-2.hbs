@@ -1,10 +1,13 @@
 
+
 <div class="box" {{action 'ToggleTileModalActive'}}>
   <img class="img-responsive" src={{url}} alt="">
+  {{#link-to 'activities.activity' activity}}
   <div class="box-title {{color}}">
       <h2>{{title}}</h2>
       <p>{{tileDetails}}{{star-rating rating=rating}}</p>
   </div>
+  {{/link-to}}
   <span class="box-bottom-right">{{dollar-price price=price}}</span>
   <span class="box-bottom-left">{{zone}}</span>
 </div>

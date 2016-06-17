@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('activity', params.id);
   },
   renderTemplate: function() {
-    this.render('activities/activity', { into: 'activities' });
+    this.render('activities/activity', { into: 'application' });
 }
 });

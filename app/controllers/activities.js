@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
     filterCatagory: 'catagory',
     filterLocation: 'location',
   },
-  sortBy: 'titleAsc',
+  sortBy: 'ratingDesc',
   sortProperties: Ember.computed('sortBy', function() {
     var options = {
       'ratingDesc': 'rating:desc,title:asc',
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
   buttonLocation: Ember.computed('filterLocation', function() {
     var filterLocation = this.get('filterLocation');
     if (filterLocation === '') {
-      return 'All Locations';
+      return 'Everywhere';
     } else {
       return filterLocation;
     }
@@ -44,42 +44,34 @@ export default Ember.Controller.extend({
       return 'Price';
     }
   }),
-  activeAll: Ember.computed('filterCatagory', function() {
+  activeCatagory: Ember.computed('filterCatagory', function() {
     var filterCatagory = this.get('filterCatagory');
     if (filterCatagory === '') {
-      return 'menu-selection-selected';
+      return 'All';
+    } else if (filterCatagory === 'Outside') {
+      return '<span class="green-text glyphicon glyphicon glyphicon-tree-conifer"></span>';
+    } else if (filterCatagory === 'Inside') {
+      return '<span class="red-text glyphicon glyphicon glyphicon-home"></span>';
+    } else if (filterCatagory === 'Kids') {
+      return '<span class="yellow-text glyphicon glyphicon glyphicon-ice-lolly-tasted"></span>';
+    } else if (filterCatagory === 'Food') {
+      return '<span class="blue-text glyphicon glyphicon-cutlery"></span>';
+    } else if (filterCatagory === 'Drinks') {
+      return '<span class="orange-text glyphicon glyphicon-glass"></span>';
     }
   }),
-  activeOutside: Ember.computed('filterCatagory', function() {
-    var filterCatagory = this.get('filterCatagory');
-    if (filterCatagory === 'Outside') {
-      return 'menu-selection-selected';
+  catagoryTable: true,
+  locationTable: true,
+  sortTable: true,
+  sortTriangle: Ember.computed('sortBy', function() {
+    var sortBy = this.get('sortBy');
+    if (sortBy === 'titleDesc' || sortBy === 'priceDesc' || sortBy === 'catagoryDesc' || sortBy === 'ratingDesc' ) {
+      return '<span class="glyphicon glyphicon-triangle-bottom sort-triangle" aria-hidden="true">';
+    } else {
+      return '<span class="glyphicon glyphicon-triangle-top sort-triangle" aria-hidden="true">';
     }
   }),
-  activeInside: Ember.computed('filterCatagory', function() {
-    var filterCatagory = this.get('filterCatagory');
-    if (filterCatagory === 'Inside') {
-      return 'menu-selection-selected';
-    }
-  }),
-  activeKids: Ember.computed('filterCatagory', function() {
-    var filterCatagory = this.get('filterCatagory');
-    if (filterCatagory === 'Kids') {
-      return 'menu-selection-selected';
-    }
-  }),
-  activeFood: Ember.computed('filterCatagory', function() {
-    var filterCatagory = this.get('filterCatagory');
-    if (filterCatagory === 'Food') {
-      return 'menu-selection-selected';
-    }
-  }),
-  activeDrinks: Ember.computed('filterCatagory', function() {
-    var filterCatagory = this.get('filterCatagory');
-    if (filterCatagory === 'Drinks') {
-      return 'menu-selection-selected';
-    }
-  }),
+
 
 
   matchingActivities: function() {
@@ -151,6 +143,15 @@ export default Ember.Controller.extend({
     },
     setFilterLocation(filterItem) {
       this.set('filterLocation', filterItem);
+    },
+    toggleCatagoryTable() {
+      this.toggleProperty('catagoryTable');
+    },
+    toggleLocationTable() {
+      this.toggleProperty('locationTable');
+    },
+    toggleSortTable() {
+      this.toggleProperty('sortTable');
     },
   }
 

@@ -1,12 +1,72 @@
-<h1>{{model.title}}</h1>
-<ul>
-  <li>title: {{model.title}}</li>
-  <li>sub-title: {{model.tileDetails}}</li>
-  <li>catagory: {{model.catagory}}</li>
-  <li>rating: {{model.rating}}</li>
-  <li>zone: {{model.zone}}</li>
-  <li>duration: {{model.duration}}</li>
-  <li>price: {{model.price}}</li>
-  <li>Address: {{model.address.address1}}, {{model.address.city}}, {{model.address.state}} {{model.address.zip}}</li>
-  <li>description: {{model.description}}</li>
-</ul>
+<div class="activity-title {{color}}-background"><h3 class="funtext-strong">{{model.title}}</h3></div>
+
+<div class="container activity-container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      {{#each model.userimages as |image|}}
+        {{#if image.cover}}
+          <div class="jumbotron shadow" style="background-image: url('{{image.imageUrl}}')"></div>
+        {{/if}}
+      {{/each}}
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="activity-sub-title page-header funtext">{{model.tileDetails}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+
+          <p>{{model.description}}</p>
+        </div>
+        <div class="col-md-6">
+          <div class="activity-info">
+            <div class="table {{color}}-border">
+              <div class="row">
+                <div class="cell">
+                  <strong>Rating:</strong>
+                </div>
+                <div class="cell">
+                  {{model.rating}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <strong>Price:</strong>
+                </div>
+                <div class="cell">
+                  {{model.price}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <strong>Takes About:</strong>
+                </div>
+                <div class="cell">
+                  {{model.duration}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          {{#g-map lat=45.5231 lng=-122.6765 zoom=12 as |context|}}
+            {{#g-map-marker context lat=45.5083 lng=-122.6660 as |markerContext|}}
+              {{#g-map-infowindow markerContext closeOn="click" title="hey"}}
+                <p><strong>OMSI</strong></p><a href="https://www.google.com/maps/place/OMSI/@45.5083437,-122.6681537,17z/data=!3m1!4b1!4m5!3m4!1s0x54950a72e8b112d1:0xd074694827faf84c!8m2!3d45.5083437!4d-122.6659597">
+                <p>{{model.address.address1}}<br>
+                {{model.address.city}}, {{model.address.state}} {{model.address.zip}}</p></a>
+              {{/g-map-infowindow}}
+            {{/g-map-marker}}
+          {{/g-map}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

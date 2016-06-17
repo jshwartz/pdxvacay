@@ -572,7 +572,12 @@ button.btn.btn-grey {
   margin-top: 80px;
   margin-bottom: 80px;
   box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+}
 
+@media only screen and (max-width: 991px) {
+  .g-map-canvas {
+      margin-top: 40px;
+  }
 }
 
 .jumbotron {
@@ -581,8 +586,9 @@ button.btn.btn-grey {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
+
 
 .jumbotron img {
   object-fit: cover;
@@ -624,13 +630,28 @@ button.btn.btn-grey {
   font-size:
 }
 
+.activity-info {
+  margin: auto;
+}
+
+@media only screen and (max-width: 991px) {
+  .activity-info {
+      margin-top: 40px;
+  }
+}
+
+
 .activity-info .table {
   display: table;
-  max-width: 250px;
-  margin: auto;
-  border-left: 5px solid;
+  max-width: 350px;
+  border-top: 5px solid;
   padding: 12px;
-  background-color: #eee;
+  background-color: rgba(237, 237, 237, 0.6);
+  margin: auto;
+}
+
+.toned {
+  opacity: 0.8;
 }
 
 .activity-info .green-border {
@@ -658,9 +679,29 @@ button.btn.btn-grey {
 
 }
 
+
+
 .activity-info .cell {
   display: table-cell;
   padding: 2px;
+}
+
+.activity-info .row-pad {
+  padding-bottom: 10px;
+
+}
+
+.activity-info .cell-right {
+  padding: 10px;
+  text-align: right;
+}
+
+.activity-info .row-border {
+  border-top: 1px solid;
+  border-color: rgba(0, 0, 0, 0.1)
+
+
+
 }
 
 html {

@@ -21,8 +21,9 @@ export default Ember.Component.extend({
     },
     updateCover() {
       var picked = this.get('picked'),
-          tileUrl = this.get('picked.tileUrl');
-      this.sendAction('updateCover', picked, tileUrl);
+          tileUrl = this.get('picked.tileUrl'),
+          jumboUrl = this.get('picked.jumboUrl');
+      this.sendAction('updateCover', picked, tileUrl, jumboUrl);
     }
   }
 });

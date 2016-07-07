@@ -8,6 +8,9 @@ export default Model.extend({
   city: attr('string'),
   state: attr('string'),
   zip: attr('number'),
-  activity: belongsTo('activity')
+  activity: belongsTo('activity'),
+  lat: attr('number'),
+  long: attr('number'),
+  googleDirections: attr('string'),
 
 });

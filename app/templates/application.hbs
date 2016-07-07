@@ -20,7 +20,7 @@
           <div class="navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 {{#link-to 'activities' tagName='li'}}
-                  {{link-to 'Guidebook' 'activities'}}
+                  {{link-to 'Recommendations' 'activities'}}
                 {{/link-to}}
                 {{#link-to 'admin.activities.list' tagName='li'}}
                   {{link-to 'Admin' 'admin.activities.list'}}
@@ -32,13 +32,13 @@
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 {{#link-to 'activities' tagName='li'}}
-                  {{link-to 'Guidebook' 'activities'}}
+                  {{link-to 'Recommendations' 'activities'}}
                 {{/link-to}}
                 {{#link-to 'admin.activities.list' tagName='li'}}
                   {{link-to 'Admin' 'admin.activities.list'}}
                 {{/link-to}}
-                {{#link-to 'index' tagName='li'}}
-                  {{link-to 'Itineraries' 'index'}}
+                {{#link-to 'lists' tagName='li'}}
+                  {{link-to 'Lists' 'lists'}}
                 {{/link-to}}
                 {{#link-to 'index' tagName='li'}}
                   {{link-to 'Wedding' 'index'}}
@@ -48,5 +48,7 @@
         {{/if}}
     </div><!-- /.container-fluid -->
   </nav>
-  </div>
+</div>
+
+
   {{outlet}}

@@ -55,7 +55,12 @@ export default Model.extend({
 
   tileUrl: Ember.computed('filestackKey', function() {
     var filestackKey = this.get('filestackKey');
-    return "https://process.filestackapi.com/AF4bKWUVdRImQUEbaWs72z/resize=width:350,height:200,fit:crop/" + filestackKey;
+    return "https://process.filestackapi.com/AF4bKWUVdRImQUEbaWs72z/resize=width:384,height:256,fit:crop/" + filestackKey;
+  }),
+
+  jumboUrl: Ember.computed('filestackKey', function() {
+    var filestackKey = this.get('filestackKey');
+    return "https://process.filestackapi.com/AF4bKWUVdRImQUEbaWs72z/resize=height:600,align:center/" + filestackKey;
   }),
 
 });

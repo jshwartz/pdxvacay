@@ -15,5 +15,11 @@ export default Model.extend({
   address: belongsTo('address'),
   userimages: hasMany('userimage'),
   coverUrl: attr('string'),
+  tileUrl: attr('string'),
+  website: attr('string'),
+  publish: attr('boolean', { defaultValue: false }),
+  createdAt: attr('date', {
+    defaultValue() { return new Date(); }
+  }),
 
 });

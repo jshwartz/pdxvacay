@@ -1,0 +1,98 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>{{model.title}}</h3>
+    <p>{{model.description}}</p>
+    <button class="btn btn-default btn-xs" {{action 'editList'}}>Edit List</button>
+    <button class="btn btn-default btn-xs" {{action 'destroyList'}}>Delete List</button>&nbsp;
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th {{action "setSortingTitle"}}><span class="sorting-link">Title</span></th>
+        <th {{action "setSortingRating"}}><span class="sorting-link">Rating</span></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sortedListItems as |item|}}
+        <tr>
+          <td>{{item.title}}</td>
+          <td>{{item.rating}}</td>
+          <td><button class="btn btn-default btn-xs" {{action 'removeItem' item}}>Remove</button></td>
+        </tr>
+      {{/each}}
+      <tr>
+        <td><button class="btn btn-default btn-xs" {{action 'openModal'}}>Add List Item</button></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  {{#bs-modal title="Edit Current List" footer=false body=false open=editListOpen closeAction=(action "editListClose")}}
+    {{#bs-modal-body}}
+      {{#bs-form action=(action "submitEdit") model=this}}
+        {{#bs-form-group}}
+          <label class="control-label">Title</label>
+          {{bs-input type="text" value=model.title property="newtitle"}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          <label class="control-label">Description</label>
+          {{bs-textarea rows=4 value=model.description property="newdescription"}}
+        {{/bs-form-group}}
+      {{/bs-form}}
+    {{/bs-modal-body}}
+    {{#bs-modal-footer as |footer|}}
+     {{#bs-button buttonType="submit" type="success"}}Save Edits{{/bs-button}}
+    {{/bs-modal-footer}}
+  {{/bs-modal}}
+
+  {{#bs-modal title="Choose Item to Add" footer=false open=openModal closeAction=(action "closeModal")}}
+      <div class="row">
+        <div class="col-sm-4">
+          <p><strong>Outside</strong></p>
+          <ul class="list-unstyled">
+            {{#each outsideActivities as |activity|}}
+            <li class='sorting-link'><span {{action "setNewItem" activity}}>{{activity.title}}</span></li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <p><strong>Inside</strong></p>
+          <ul class="list-unstyled">
+            {{#each insideActivities as |activity|}}
+            <li class='sorting-link' {{action 'setNewItem' activity}}>{{activity.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <p><strong>Kids</strong></p>
+          <ul class="list-unstyled">
+            {{#each kidsActivities as |activity|}}
+            <li class='sorting-link' {{action 'setNewItem' activity}}>{{activity.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <p><strong>Food</strong></p>
+          <ul class="list-unstyled">
+            {{#each foodActivities as |activity|}}
+            <li class='sorting-link' {{action 'setNewItem' activity}}>{{activity.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <p><strong>Drinks</strong></p>
+          <ul class="list-unstyled">
+            {{#each drinkActivities as |activity|}}
+            <li class='sorting-link' {{action 'setNewItem' activity}}>{{activity.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+  {{/bs-modal}}

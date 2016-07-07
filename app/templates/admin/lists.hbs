@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Lists Dashboard</h1>
+    {{#bs-dropdown}}
+      {{#bs-dropdown-button class='btn-sm'}}Choose List <span class="caret"></span>{{/bs-dropdown-button}}
+      {{#bs-dropdown-menu}}
+        {{#each model as |list|}}
+          <li>{{#link-to 'admin.lists.list' list}}{{list.title}}{{/link-to}}</li>
+        {{/each}}
+      {{/bs-dropdown-menu}}
+    {{/bs-dropdown}}
+    <button class="btn btn-success btn-sm" type="button" {{action 'newListOpen'}}>Create New List</button>
+
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+
+
+        {{outlet}}
+
+    </div>
+  </div>
+  {{#bs-modal title="New List" footer=false body=false open=newListOpen closeAction=(action "newListClose")}}
+    {{#bs-modal-body}}
+      {{#bs-form action=(action "submit") model=this}}
+        {{#bs-form-group}}
+          <label class="control-label">Title</label>
+          {{bs-input type="text" value=newtitle property="newtitle"}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          <label class="control-label">Description</label>
+          {{bs-textarea rows=4 value=newdescription property="newdescription"}}
+        {{/bs-form-group}}
+      {{/bs-form}}
+    {{/bs-modal-body}}
+    {{#bs-modal-footer as |footer|}}
+     {{#bs-button buttonType="submit" type="success"}}Create New List{{/bs-button}}
+    {{/bs-modal-footer}}
+  {{/bs-modal}}
+</div>

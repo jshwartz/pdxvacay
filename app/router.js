@@ -21,7 +21,11 @@ Router.map(function() {
       });
       this.route('list');
     });
+    this.route('lists', function() {
+      this.route('list', {path: ':id'});
+    });
   });
+  this.route('lists');
 });
 
 export default Router;

@@ -1,14 +1,13 @@
-<div class="activity-title {{color}}-background"><h3 class="funtext-strong">{{model.title}}</h3></div>
+<div class="activity-title {{color}}-background"><h3 class="funtext-strong">{{#link-to 'activities'}}<span class="glyphicon glyphicon-hand-left activity-back" aria-hidden="true"></span>{{/link-to}}<span class='nudge-left'>{{model.title}}</span></h3></div>
+
 
 <div class="container activity-container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-      {{#each model.userimages as |image|}}
-        {{#if image.cover}}
-          <div class="jumbotron shadow" style="background-image: url('{{image.imageUrl}}')"></div>
-        {{/if}}
-      {{/each}}
+
+          <div class="jumbotron shadow" style="background-image: url('{{model.coverUrl}}')"></div>
+
 
 
 
@@ -30,7 +29,7 @@
                   <strong>Rating:</strong>
                 </div>
                 <div class="cell">
-                  {{model.rating}}
+                  {{star-rating rating=model.rating}}
                 </div>
               </div>
               <div class="row">
@@ -38,7 +37,7 @@
                   <strong>Price:</strong>
                 </div>
                 <div class="cell">
-                  {{model.price}}
+                  {{dollar-price price=model.price}}
                 </div>
               </div>
               <div class="row">
@@ -52,8 +51,8 @@
               <div class="row ">
                 <div class="cell row-border">
                   <div class="cell-right">
-                    <a class="btn btn-default toned" href="#" role="button">Website</a>
-                    &nbsp;&nbsp;<a class="btn btn-default toned" href="#" role="button">Directions</a>
+                    <a class="btn btn-default btn-sm toned" href="{{model.website}}" role="button">Website</a>
+                    &nbsp;&nbsp;<a class="btn btn-default btn-sm toned" href="{{model.address.googleDirections}}" role="button">Directions</a>
                   </div>
                 </div>
                 <div class="cell row-border">
@@ -67,12 +66,13 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          {{#g-map lat=45.5231 lng=-122.6765 zoom=12 as |context|}}
-            {{#g-map-marker context lat=45.5083 lng=-122.6660 as |markerContext|}}
+          {{#g-map lat=model.address.lat lng=model.address.long zoom=12 as |context|}}
+            {{#g-map-marker context lat=model.address.lat lng=model.address.long as |markerContext|}}
               {{#g-map-infowindow markerContext closeOn="click" title="hey"}}
-                <p><strong>OMSI</strong></p><a href="https://www.google.com/maps/place/OMSI/@45.5083437,-122.6681537,17z/data=!3m1!4b1!4m5!3m4!1s0x54950a72e8b112d1:0xd074694827faf84c!8m2!3d45.5083437!4d-122.6659597">
+                <p><strong>{{model.title}}</strong></p>
                 <p>{{model.address.address1}}<br>
-                {{model.address.city}}, {{model.address.state}} {{model.address.zip}}</p></a>
+                {{model.address.city}}, {{model.address.state}} {{model.address.zip}}</p>
+                <a href="{{model.address.googleDirections}}"><p>Open in Google Maps</p></a>
               {{/g-map-infowindow}}
             {{/g-map-marker}}
           {{/g-map}}

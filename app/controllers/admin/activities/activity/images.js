@@ -63,7 +63,7 @@ export default Ember.Controller.extend({
       });
       img.destroyRecord();
     },
-    updateCover(picked, tileUrl){
+    updateCover(picked, tileUrl, jumboUrl){
       var images = this.get('model.userimages'),
           model = this.get('model');
       images.forEach(function(img) {
@@ -72,7 +72,9 @@ export default Ember.Controller.extend({
       });
       picked.set('cover', true);
       picked.save();
-      model.set('coverUrl', tileUrl);
+      model.set('coverUrl', jumboUrl);
+      model.save();
+      model.set('tileUrl', tileUrl);
       model.save();
     },
 

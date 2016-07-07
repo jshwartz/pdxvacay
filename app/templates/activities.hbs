@@ -101,7 +101,7 @@
 
       {{#each sortedActivities as |activity|}}
         {{#link-to 'activities.activity' activity}}
-          {{activity-tile-2 url=activity.coverUrl activity=activity title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory rating=activity.rating price=activity.price zone=activity.zone}}
+          {{activity-tile-2 url=activity.tileUrl activity=activity title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory rating=activity.rating price=activity.price zone=activity.zone}}
         {{/link-to}}
       {{/each}}
 

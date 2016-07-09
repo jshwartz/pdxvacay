@@ -18,30 +18,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         {{#if expandNav}}
           <div class="navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav">
                 {{#link-to 'activities' tagName='li'}}
-                  {{link-to 'Recommendations' 'activities'}}
+                  {{link-to 'Guidebook' 'activities'}}
                 {{/link-to}}
-                {{#link-to 'admin.activities.list' tagName='li'}}
-                  {{link-to 'Admin' 'admin.activities.list'}}
+                {{#link-to 'lists' tagName='li'}}
+                  {{link-to 'Lists' 'lists'}}
                 {{/link-to}}
               </ul>
           </div><!-- /.navbar-collapse -->
         {{else}}
         <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav">
                 {{#link-to 'activities' tagName='li'}}
-                  {{link-to 'Recommendations' 'activities'}}
-                {{/link-to}}
-                {{#link-to 'admin.activities.list' tagName='li'}}
-                  {{link-to 'Admin' 'admin.activities.list'}}
+                  {{link-to 'Guidebook' 'activities'}}
                 {{/link-to}}
                 {{#link-to 'lists' tagName='li'}}
                   {{link-to 'Lists' 'lists'}}
-                {{/link-to}}
-                {{#link-to 'index' tagName='li'}}
-                  {{link-to 'Wedding' 'index'}}
                 {{/link-to}}
               </ul>
           </div><!-- /.navbar-collapse -->

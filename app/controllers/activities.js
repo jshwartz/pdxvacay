@@ -72,8 +72,6 @@ export default Ember.Controller.extend({
     }
   }),
 
-
-
   matchingActivities: function() {
     var filterLocation = this.get('filterLocation');
     var filterCatagory = this.get('filterCatagory');

@@ -19,7 +19,6 @@ export default Ember.Controller.extend({
   }),
   sortedActivities: Ember.computed.sort('matchingActivities', 'sortProperties'),
   newActivityActive: false,
-  title: null,
   searchTerm: '',
   matchingActivities: Ember.computed('model.@each.title', 'searchTerm', function() {
     var searchTerm = this.get('searchTerm').toLowerCase();
@@ -28,6 +27,11 @@ export default Ember.Controller.extend({
       return model.get('title').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
+  newActivityOpen: false,
+  title: '',
+  catagory: '',
+  zone: '',
+
 
   actions: {
     setSortingTitle() {

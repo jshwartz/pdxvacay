@@ -5,10 +5,10 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   title:  attr('string'),
-  catagory: attr('string'),
+  catagory: attr('string', { defaultValue: 'Outside'}),
   rating: attr('number', { defaultValue: 1} ),
   tileDetails: attr('string'),
-  zone: attr('string'),
+  zone: attr('string', { defaultValue: 'Portland'}),
   duration: attr('string'),
   price: attr('number'),
   description: attr('string'),

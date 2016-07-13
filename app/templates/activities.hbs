@@ -105,9 +105,11 @@
   <div class="col-lg-10 col-md-9">
 
       {{#each sortedActivities as |activity|}}
-        {{#link-to 'activities.activity' activity}}
-          {{activity-tile-2 url=activity.tileUrl activity=activity title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory rating=activity.rating price=activity.price zone=activity.zone}}
-        {{/link-to}}
+        {{#if activity.publish}}
+          {{#link-to 'activities.activity' activity}}
+            {{activity-tile-2 url=activity.tileUrl activity=activity title=activity.title tileDetails=activity.tileDetails catagory=activity.catagory rating=activity.rating price=activity.price zone=activity.zone}}
+          {{/link-to}}
+        {{/if}}
       {{/each}}
 
   </div>

@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          {{#g-map lat=model.address.lat lng=model.address.long zoom=12 as |context|}}
+          {{#g-map lat=model.address.lat lng=model.address.long zoom=15 as |context|}}
             {{#g-map-marker context lat=model.address.lat lng=model.address.long as |markerContext|}}
               {{#g-map-infowindow markerContext closeOn="click" title="hey"}}
                 <p><strong>{{model.title}}</strong></p>

@@ -11,6 +11,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
     },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,6 +23,9 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+  ENV['g-map'] = {
+    key: 'AIzaSyAhdahVG08fjdOqTcbnr2bjq2Q0KUEboO8',
   };
 
   if (environment === 'development') {

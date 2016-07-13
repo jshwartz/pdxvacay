@@ -12,6 +12,8 @@ body {
   background: -ms-linear-gradient(left, rgba(0,148,106,0.05) 0%, rgba(34,221,227,0.06) 100%);
   background: linear-gradient(to right, rgba(0,148,106,0.05) 0%, rgba(34,221,227,0.06) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00946a', endColorstr='#22dde3', GradientType=1 );
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -93,17 +95,19 @@ li.rightside {
 
 @media only screen and (max-width: 500px) {
     .box {
-        width: 100%;
+        width: 90%;
         height: 100%;
-        margin: 0px;
+        margin: auto;
         margin-bottom: 12px;
+        float: none;
     }
 }
 
 
-
-.box:hover {
-  transform: scale(1.05, 1.05);
+@media only screen and (min-width: 500px) {
+  .box:hover {
+    transform: scale(1.05, 1.05);
+  }
 }
 
 
@@ -121,20 +125,52 @@ li.rightside {
 
 }
 
-.box:hover .box-title {
-  height: 100%;
+@media only screen and (min-width: 500px) {
+  .box:hover .box-title {
+    height: 100%;
+  }
 }
 
-.box:hover .box-title h2 {
-  top: 20%;
+@media only screen and (min-width: 500px) {
+  .box:hover .box-title p,
+  .box:hover .box-bottom-left,
+  .box:hover .box-bottom-right {
+    opacity: 1;
+
+  }
 }
 
-.box:hover .box-title p,
-.box:hover .box-bottom-left,
-.box:hover .box-bottom-right {
-  opacity: 1;
-
+@media only screen and (min-width: 500px) {
+  .box:hover .box-title h2 {
+    top: 20%;
+  }
 }
+
+@media only screen and (max-width: 500px) {
+  .box-title:hover .box-title {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .box-title:hover .box-title p,
+  .box-title:hover .box-bottom-left,
+  .box-title:hover .box-bottom-right {
+    opacity: 1;
+
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .box-title:hover .box-title h2 {
+    top: 20%;
+  }
+}
+
+
+
+
+
 
 .box .green {
   background-color: rgba(155, 198, 63, 0.9);
@@ -197,6 +233,12 @@ li.rightside {
   transition-delay: 0.05s;
 }
 
+@media only screen and (max-width: 500px) {
+    .box-bottom-right {
+        font-size: 120%;
+    }
+}
+
 .box-bottom-left {
   bottom: 0;
   position: absolute;
@@ -210,9 +252,21 @@ li.rightside {
 }
 
 @media only screen and (max-width: 500px) {
+    .box-bottom-left {
+        font-size: 120%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
   .box-title h2 {
-      font-size: 20px;
+      font-size: 25px;
   }
+}
+
+@media only screen and (max-width: 500px) {
+    .box-title p {
+        font-size: 120%;
+    }
 }
 
 h1 {
@@ -342,6 +396,7 @@ button.btn.btn-grey {
  {
     color: #fff;
 }
+
 
 .center {
   text-align: center;
@@ -474,7 +529,7 @@ button.btn.btn-grey {
 }
 
 .panel-footer {
-    padding: 0px 15px;
+    padding: 6px 15px;
     text-align: center;
     color: #777;
     cursor: pointer;
@@ -779,7 +834,7 @@ body {
 }
 
 .cover {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Mt._Hood._I_Miss_You_%288372245550%29.jpg);
+  background-image: url(https://www.filestackapi.com/api/file/sasI22XSgG6Zbwb5AUup);
   background-size: cover;
   background-position: center;
   position:fixed;
@@ -801,13 +856,13 @@ body {
 }
 
 .cover-link {
-  color: white;
+  color: rgba(225, 202, 188, 0.93);;
   font-weight: bolder;
 }
 
 .cover-link:hover {
   text-decoration: underline;
-  text-decoration-color: white;
+  text-decoration-color: rgba(225, 202, 188, 0.93);
 }
 
 .page-header {

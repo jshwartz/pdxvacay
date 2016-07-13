@@ -53,16 +53,16 @@ export default Ember.Controller.extend({
     } else if (filterCatagory === 'Inside') {
       return '<span class="red-text glyphicon glyphicon glyphicon-home"></span>';
     } else if (filterCatagory === 'Kids') {
-      return '<span class="yellow-text glyphicon glyphicon glyphicon-ice-lolly-tasted"></span>';
+      return '<span class="yellow-text glyphicon glyphicon glyphicon-glass"></span>';
     } else if (filterCatagory === 'Food') {
       return '<span class="blue-text glyphicon glyphicon-cutlery"></span>';
     } else if (filterCatagory === 'Drinks') {
-      return '<span class="orange-text glyphicon glyphicon-glass"></span>';
+      return '<span class="orange-text glyphicon glyphicon-tint"></span>';
     }
   }),
-  catagoryTable: true,
-  locationTable: true,
-  sortTable: true,
+  catagoryTable: false,
+  locationTable: false,
+  sortTable: false,
   sortTriangle: Ember.computed('sortBy', function() {
     var sortBy = this.get('sortBy');
     if (sortBy === 'titleDesc' || sortBy === 'priceDesc' || sortBy === 'catagoryDesc' || sortBy === 'ratingDesc' ) {

@@ -508,7 +508,12 @@ button.btn.btn-grey {
 
 .catagory-table {
   cursor: pointer;
-  font-size: 90%;
+}
+
+@media only screen and (max-width: 500px) {
+  .catagory-table > tbody > tr > td {
+    padding: 12px;
+  }
 }
 
 .panel-heading-activity {
@@ -517,7 +522,6 @@ button.btn.btn-grey {
 }
 
 .panel-heading-activity h3 {
-  font-size: 15px;
 }
 
 .sort-text {
